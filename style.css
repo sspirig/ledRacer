@@ -1,0 +1,52 @@
+#redBtn {
+    background-color: crimson;
+    
+}
+#blueBtn {
+    background-color: dodgerblue;
+}
+
+.testGame {
+    display: none;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+button#blueBtn, button#redBtn {
+    padding: 8rem;
+    margin: 0.5rem;
+    font-size: 70px;
+    color: whitesmoke;
+}
+
+button {
+    padding: 0.5rem;
+    margin: 0.2rem;
+}
+
+.roadBox {
+    display: flex;
+    flex-direction: column;
+}
+
+.road {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.roadLed {
+    padding: 0.2rem; 
+    margin: 0.1rem;
+}
+
+.roadLed#red {
+    background-color:crimson;
+}
+.roadLed#blue {
+    background-color:dodgerblue;
+}
+#info {
+    font-size: large;
+    font-weight: bolder; 
+}
