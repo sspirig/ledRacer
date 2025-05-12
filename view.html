@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head lang="fr">
     <meta charset="UTF-8">
-    <title>mytitle</title>
+    <title>ledRacer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <h2 style="font-style: italic; display: none;">Veuillez tourner en mode paysage votre appareil</h2>
+    <h1>ledRacer</h1>
     <span id="info"></span>
-    <div>Application de démonstration bluetooth...</div>
-    <div id="status">None</div>
+    <div id="status"></div>
 
     <div class="raceBox">
         <div id="red" class="road"></div>
@@ -18,15 +19,11 @@
     </div>
 
     <button id="initBtn">Appairer un équipement bluetooth (BT)</button>
-    <button id="listBtn">Lister les identifiants de services BT disponibles</button>
     <button id="connectBtn">Se connecter aux canaux réception (RT) / émission (TX) BT</button>
     <br>
-    <label for="myCmdInput">Commande: </label>
-    <input type="text" id="myCmdInput" data-ddg-inputtype="unknown">
-    <button class="sendBtn" id="custom">Envoyer</button>
-    <button class="sendBtn" id="toggle">toggle</button>
-    <b>PS: d'abord connecter au canaux reception (RT) et toggle deux fois</b>
-    <div class="testGame">
+    <button class="sendBtn" style="display: none;" id="toggle">Lancer la course</button>
+
+    <div class="gameButtons" style="display: none;">
         <button id="redBtn">AVANCER</button>
         <button id="blueBtn">AVANCER</button>
     </div>

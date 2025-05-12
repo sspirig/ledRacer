@@ -6,8 +6,20 @@
     background-color: dodgerblue;
 }
 
-.testGame {
-    display: none;
+#toggle {
+    background-color: whitesmoke;
+    padding: 0.5rem;
+    font-size: larger;
+    border-radius: 8px;
+    
+}
+
+body {
+    transition: 0.3s;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+.gameButtons {
+    
     justify-content: space-evenly;
     flex-direction: row;
 }
@@ -36,8 +48,11 @@ button {
     flex-wrap: wrap;
 }
 .roadLed {
-    padding: 0.2rem; 
-    margin: 0.1rem;
+    
+    padding: 0.1rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem; 
+    margin-top: 0.1rem;
 }
 
 .roadLed#red {
@@ -46,7 +61,17 @@ button {
 .roadLed#blue {
     background-color:dodgerblue;
 }
+
 #info {
-    font-size: large;
+    font-size: larger;
     font-weight: bolder; 
+}
+
+@media (orientation: portrait) {
+    .body {
+        display: none;
+    }
+    h2 {
+        display: flex;
+    }
 }
