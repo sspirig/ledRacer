@@ -24,15 +24,19 @@ class BtControllerLed(BtController):
             self._led_state = not self._led_state  # basculement des led on/off
             if self._led_state:
                 self._led_controller.set_led_color(LedController.BLACK)
-                #self._led_controller.loopBlueRed()
                 self._led_controller.setupLedRacer(self)
             else:
                 self._led_controller.set_led_color(LedController.MAGENTA)
             self._led_controller.update_pixel(LedController.MAX_LUMINOSITY_ALLOWED)
-        if re.search("^speedup_red", data):
-            print("speeding up red player")
-            self._led_controller.last_iR = self._led_controller.last_iR + 5
-            print(f"red player speed: {self._led_controller.last_iR}")
+        if re.search("^finishRace", data):
+            temp = data.split()
+            print(f"winner is {temp[1]}");
+            if temp[1] == "red":
+                self._led_controller.set_led_color(LedController.RED)
+            else:
+                self._led_controller.set_led_color(LedController.BLUE)
+            self._led_controller.update_pixel(LedController.MAX_LUMINOSITY_ALLOWED)
+            self._led_state = False
         if re.search("^loopRedBlue", data):
             print("loopRedBlue")
             self._led_controller.loopBlueRed(self)
@@ -40,19 +44,21 @@ class BtControllerLed(BtController):
             print("movingRed")
             temp = data.split()
             
-            self._led_controller.moveRed(int(temp[1]), self)
+            newPos = self._led_controller.moveRed(int(temp[1]))
+            self.send(f"moveRed:"+str(newPos))
             
         if re.search("^moveBlue", data):
-            print("movingBlue")
+            print("movingBlue")	
             temp = data.split()
             
-            self._led_controller.moveBlue(int(temp[1]), self)
+            newPos = self._led_controller.moveBlue(int(temp[1]))
+            self.send(f"moveBlue:"+str(newPos))
 if __name__ == "__main__":
     led_controller = LedController()
-    #led_controller.set_led_color((255, 0, 0))
-    led_controller.set_random()
-    #led_controller.ukraine_flag()
     
     btController = BtControllerLed(led_controller, "ledRacer")
     btController.start()
+
+
+
 
